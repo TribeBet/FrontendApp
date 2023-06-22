@@ -1,4 +1,6 @@
 import styles from "../../styles/Navbar.module.css";
+import Wallet from "../../components/petraWallet/wallet";
+
 export default function Navbar() {
 	return (
 		<nav className={styles.navbar}>
@@ -6,6 +8,7 @@ export default function Navbar() {
 				<img className={styles.alchemy_logo} src="/cw3d-logo.png"></img>
 			</a>
 			{/* <ConnectButton></ConnectButton> */}
+			<Wallet/>
 		</nav>
 	);
 }
