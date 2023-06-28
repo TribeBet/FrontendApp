@@ -16,11 +16,6 @@ const Wallet = () => {
         const isPetraInstalled = window.aptos;
         console.log("isPetraInstalled", isPetraInstalled);
 
-        if (isPetraInstalled) {
-            setWallet(getAptosWallet());
-        }
-
-
         // const updateBalance = async () => {
         //     setBalance(await getBalance(wallet.address, '0x1::aptos_coin::AptosCoin'));
         // };
@@ -29,10 +24,12 @@ const Wallet = () => {
         // }
     }, []);
 
+
     const getAptosWallet = () => {
         if ('aptos' in window) {
-            return window.aptos;
+            return setWallet(window.aptos);
         } else {
+            console.log(alert("Setup Petra Aptos Wallet"))
             window.open('https://petra.app/', `_blank`);
         }
     };
@@ -40,10 +37,8 @@ const Wallet = () => {
 
 
     const connect = async () => {
-        // if (!walletStates.installed) {
-        //     window.open(WALLET_INFOS.downloadUrl);
-        //     return;
-        // }
+        getAptosWallet();
+
         if (wallet) {
             try {
                 const response = await wallet.connect();
@@ -70,9 +65,6 @@ const Wallet = () => {
 
     // const isPetraInstalled = window.aptos;
     // console.log("isPetraInstalled", isPetraInstalled);
-
-
-
 
     // const wallet = getAptosWallet();
 
@@ -107,7 +99,13 @@ const Wallet = () => {
     // }
 
     return (
-        <button onClick={connect} className="text-white">
+        <button
+            onClick={
+                walletStates
+                    ? () => disconnect()
+                    : () => connect()
+            }
+            className="text-white">
             {walletStates ? 'Disconnect' : " Connect Wallet"}
         </button>
     )
