@@ -104,13 +104,13 @@ export default function Navbar() {
                     <div tabindex="0" role="button" class="btn-neutral text-white bg-black m-1">Create</div>
                     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
-                            <div onClick={() => { router.push("/profile"); }}>
+                            <div onClick={() => { router.push("/create-profile"); }}>
                                 Create Profile
                             </div>
                         </li>
                         <li>
                             <div onClick={() => { router.push("/bets"); }}>
-                                Create Bet
+                                Create Prediction
                             </div>
                         </li>
                         <li>
