@@ -48,7 +48,7 @@ const Slider = () => {
 
   return (
     <div>
-      <div className="carousel w-full" ref={sliderRef}>
+      <div className="carousel w-[300px] sm:w-full" ref={sliderRef}>
         {sortedData.map((item, index) => (
           <div key={item.name} className={`carousel-item w-full ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}>
             <MovieCard

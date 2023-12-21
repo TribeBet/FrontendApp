@@ -17,7 +17,7 @@ const SportSlider = ({ sports, onSportChange }) => {
           key={sport}
           className={`${
             selectedSport === sport
-              ? 'bg-purple-500 text-white'
+              ? 'bg-[#98ee2c] text-white'
               : 'bg-gray-300 text-gray-700'
           } px-4 py-2 rounded-full focus:outline-none mr-2`}
           onClick={() => handleSportClick(sport)}

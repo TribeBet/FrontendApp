@@ -59,7 +59,7 @@ const BettingSlip = ({ onClose, match }) => {
         <div className="mb-4">
           <button
             onClick={handlePlaceBet}
-            className="bg-purple-700 text-white px-4 py-2 rounded-full focus:outline-none hover:bg-purple-800"
+            className="bg-[#98ee2c] text-black px-4 py-2 rounded-full focus:outline-none hover:bg-purple-800"
           >
             Place Bet
           </button>

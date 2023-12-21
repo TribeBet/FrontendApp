@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 // import Search from "@/components/Search";
 import CardSlider from "@/components/Card/CardSlider";
 import Versus from "@/components/VersusCard/Versus";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient("https://dnvapjddueuuhkttxpkf.supabase.co", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
 export default function Home() {
   const router = useRouter();
