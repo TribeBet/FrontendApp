@@ -1,12 +1,16 @@
 
 import React, { useState, useEffect } from 'react'
+import { atom, useAtom } from 'jotai'
+import { walletAddressAtom } from "@/lib/state";
 
 const Wallet = () => {
     const [petraWallet, setPetraWallet] = useState();
     const [balance, setBalance] = useState('');
     const [walletStates, setWalletStates] = useState(false)
-    const [address, setAddress] = useState('');
     const [publicKey, setPublicKey] = useState('');
+
+    const [address, setAddress] = useAtom(walletAddressAtom)
+
 
     const [wallet, setWallet] = useState(null);
     // const wallet = getAptosWallet();
@@ -15,6 +19,7 @@ const Wallet = () => {
         // setWallet(window.aptos);
         const isPetraInstalled = window.aptos;
         console.log("isPetraInstalled", isPetraInstalled);
+        console.log("wallet address", wallet)
 
         // const updateBalance = async () => {
         //     setBalance(await getBalance(wallet.address, '0x1::aptos_coin::AptosCoin'));

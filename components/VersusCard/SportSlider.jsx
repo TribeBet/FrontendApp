@@ -56,8 +56,8 @@ const SportSlider = ({ sports, onSportChange }) => {
           key={sport}
           className={`${
             clickedSport === sport
-              ? 'bg-purple-700 text-white glow'  // Apply glow effect when clicked
-              : 'bg-gray-300 text-gray-700'
+              ? 'bg-[#98ee2c] text-white glow'  // Apply glow effect when clicked
+              : 'bg-white text-black'
           } px-4 py-2 rounded-full focus:outline-none mr-2 mb-3 sport-button`}
           onClick={() => handleSportClick(sport)}
         >

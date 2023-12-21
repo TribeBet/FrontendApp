@@ -69,7 +69,7 @@ const Slider = () => {
           <a
             key={item.name}
             href={`#item${index}`}
-            className={`btn btn-xs ${index === currentSlide ? 'btn-primary' : 'btn-secondary'}`}
+            className={`btn btn-xs ${index === currentSlide ? 'btn-accent' : 'btn-neutral'}`}
             onClick={() => sliderRef.current.scrollTo({ left: index * sliderRef.current.clientWidth, behavior: 'smooth' })}
           >
             {index + 1}
