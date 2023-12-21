@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import logo from "../../public/images/logo-betting.png";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+
 
 const style = {
     wrapper: `bg-black w-screen px-[1.2rem] py-[0.8rem] flex `,
