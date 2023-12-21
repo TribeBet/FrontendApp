@@ -3,9 +3,10 @@ import { useState, useRef, useEffect } from 'react';
 import MovieCard from './Card';
 
 const moviesData = [
-  { name: 'Cricket', info: 'Cricket information...', image: '/images/cricket.png' },
-  { name: 'Football', info: 'Football information...', image: '/images/football.jpeg' },
-  { name: 'Basketball', info: 'Basketball information...', image: '/images/basketball.jpeg' },
+  { name: 'Cricket', info: 'Cricket information...', image: '/images/cricketf.png' },
+  { name: 'Football', info: 'Football information...', image: '/images/footballl.png' },
+  { name: 'Esports', info: 'esports information...', image: '/images/esports.png' },
+  { name: 'Basketball', info: 'Basketball information...', image: '/images/basketballl.png' },
   // Add more sports as needed
 ];
 
