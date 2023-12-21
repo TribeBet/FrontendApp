@@ -19,7 +19,7 @@ const BettingSlip = ({ onClose, match }) => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-black bg-opacity-30 flex items-center justify-center backdrop-blur-md">
-      <div className="bg-transparent border-2 border-solid border-gray-400 p-4 rounded-lg w-96">
+      <div className="bg-[] border-2 border-solid border-gray-400 p-4 rounded-lg w-96">
         <h2 className="text-xl font-bold mb-2">Bet Slip</h2>
         <div className="mb-2">
           <h3 className="text-lg font-bold">{match.team1} VS {match.team2}</h3>
