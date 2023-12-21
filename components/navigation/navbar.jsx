@@ -90,14 +90,38 @@ export default function Navbar() {
                 <Link href="/streaming">
                     {/* <div className={style.headerItem}> Streaming </div> */}
                 </Link>
-                <div
+
+                {/* <div
                     className={style.headerItem}
                     onClick={() => {
                         router.push("/bets");
                     }}
                 >
                     Create Bet
+                </div> */}
+
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn-neutral text-white bg-black m-1">Create</div>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <div onClick={() => { router.push("/profile"); }}>
+                                Create Profile
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => { router.push("/bets"); }}>
+                                Create Bet
+                            </div>
+                        </li>
+                        <li>
+                            <div onClick={() => { router.push("/tournament"); }}>
+                                Create Tournament
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
+
                 <div
                     className={style.headerItem}
                     onClick={() => {
