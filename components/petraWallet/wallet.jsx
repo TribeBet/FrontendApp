@@ -105,7 +105,7 @@ const Wallet = () => {
                     ? () => disconnect()
                     : () => connect()
             }
-            className="text-white">
+            className="text-gray-900">
             {walletStates ? 'Disconnect' : " Connect Wallet"}
         </button>
     )

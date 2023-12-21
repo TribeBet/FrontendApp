@@ -39,7 +39,7 @@ const BettingSlip = ({ onClose, match }) => {
             <label className="block text-sm font-medium text-gray-200 mb-1">Select Option</label>
             <select
               className="w-full px-2 py-1 border border-gray-300 rounded"
-              value={selectedOption}
+              defaultValue={selectedOption}
               onChange={(e) => setSelectedOption(e.target.value)}
             >
               <option value="Team A">{`${match.team1} - ${match.prob1}`}</option>
@@ -50,7 +50,7 @@ const BettingSlip = ({ onClose, match }) => {
           <input
             type="number"
             placeholder="Enter bet amount"
-            value={betAmount}
+            defaultValue={betAmount}
             onChange={(e) => setBetAmount(e.target.value)}
             className="w-full px-2 py-1 border border-gray-300 rounded mt-2"
           />
