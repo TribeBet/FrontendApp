@@ -109,7 +109,7 @@ export default function Navbar() {
                 <div
                     className={style.headerItem}
                     onClick={() => {
-                        router.push("/tournament");
+                        router.push("/stream");
                     }}
                 >
                     Tournaments
