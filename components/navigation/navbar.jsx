@@ -93,7 +93,7 @@ export default function Navbar() {
                 <div
                     className={style.headerItem}
                     onClick={() => {
-                        router.push("/bet");
+                        router.push("/bets");
                     }}
                 >
                     Create Bet
