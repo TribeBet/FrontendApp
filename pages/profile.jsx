@@ -39,7 +39,7 @@ const nft = () => {
         datasets: [
             {
                 data: [userProfile.stats.matchesWon, userProfile.stats.matchesLost],
-                backgroundColor: ['#4ade80', '#f87171'],
+                backgroundColor: ['#98ee2c', '#f87171'],
                 hoverBackgroundColor: ['#22d3ee', '#fb7185']
             }
         ]
