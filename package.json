@@ -18,7 +18,8 @@
 		"next": "13.1.2",
 		"react": "18.2.0",
 		"react-chartjs-2": "^5.2.0",
-		"react-dom": "18.2.0"
+		"react-dom": "18.2.0",
+		"react-modal": "^3.16.1"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",

@@ -4,9 +4,13 @@ import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { atom, useAtom } from 'jotai'
 import { walletAddressAtom } from "@/lib/state";
-import { Router } from 'next/router';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+// import PopupButton from '@/components/PopupButton';
+
 
 const nft = () => {
+    const router = useRouter();
     const [walletAddress, setWalletAddress] = useAtom(walletAddressAtom);
 
     const [userProfile, setUserProfile] = useState({
@@ -17,7 +21,7 @@ const nft = () => {
             matchesPlayed: 10,
             matchesWon: 6,
             matchesLost: 4
-        }, 
+        },
         ongoingBets: [
             { team: 'India', odds: 1.5, betAmount: 100, potentialWin: 150 },
             { team: 'Australia', odds: 2.0, betAmount: 120, potentialWin: 240 },
@@ -50,11 +54,11 @@ const nft = () => {
         { label: 'Total Bet Amount', value: calculateTotalBetAmount(userProfile) },
         { label: 'Matches Won', value: userProfile.stats.matchesWon },
         { label: 'Matches Lost', value: userProfile.stats.matchesLost },
-        
-        
+
+
         // Add more stats data as needed
     ];
-return (
+    return (
         <div className="bg-black text-white min-h-screen p-4">
             <div className="container mx-auto">
                 {/* Profile and Statistics Sections */}
@@ -62,11 +66,21 @@ return (
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
                             <Image src={userProfile.avatar} alt="Avatar" width={100} height={100} className="rounded-full" />
-                            <h1 className="text-3xl font-bold">{userProfile.username}</h1>
+                            <div className="flex flex-col">
+                                <h1 className="text-3xl font-bold">{userProfile.username}</h1>
+                                <div className='text-sm'> Wallet Address : {walletAddress}</div>
+                            </div>
                         </div>
-                        <button className="bg-custom-color text-black px-4 py-2 rounded hover:bg-custom-color-500 transition duration-300">
+                        {/* <button className="bg-custom-color text-black px-4 py-2 rounded hover:bg-custom-color-500 transition duration-300">
                             Connect to {userProfile.twitterHandle}
+                        </button> */}
+
+                        <button className="bg-custom-color text-black px-4 py-2 rounded hover:bg-custom-color-500 transition duration-300"
+                            onClick={() => router.push('https://global-stg.transak.com/?apiKey=4aae77ea-df1a-4a88-9095-89625873c08e')}
+                        >
+                            Buy APT Token
                         </button>
+
                     </div>
                 </div>
 
@@ -76,7 +90,7 @@ return (
                         <Pie data={pieData} options={pieOptions} />
                     </div>
                 </div>
-                
+
                 <div className="p-4 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
                     <h2 className="text-2xl font-semibold">Additional Statistics</h2>
                     <div className="grid grid-cols-2 gap-4 mt-4">
@@ -97,40 +111,40 @@ return (
                                 {/* Bet card content */}
                                 {/* ... same as before */}
                                 <div className="flex justify-between items-center mb-4">
-                            <div className="flex items-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"
-                                    alt="Team Flag"
-                                    className="w-8 h-5 mr-2" />
-                                <span className="text-lg font-semibold text-yellow-300">{bet.team}</span>
-                            </div>
-                            <span className="text-md text-yellow-300 font-semibold">
-                                x{bet.odds.toFixed(2)}
-                            </span>
-                        </div>
-                        <div className="mb-4">
-                            <label htmlFor="betAmount" className="text-sm font-medium text-gray-300">
-                                Bet Amount
-                            </label>
-                            <div className="mt-1 relative rounded-md shadow-sm">
-                                <input
-                                    type="number"
-                                    id="betAmount"
-                                    value={bet.betAmount}
-                                    className="block w-full pl-4 pr-12 sm:text-sm bg-gray-700 border-gray-600 rounded-md text-white"
-                                    placeholder="0"
-                                    readOnly
-                                />
-                            </div>
-                        </div>
-                        <div className="text-right">
-                            <span className="text-sm font-medium text-gray-300">Potential Win:</span>
-                            <span className="text-lg font-bold text-green-400 ml-2">
-                                ${bet.potentialWin.toFixed(2)}
-                            </span>
-                            <button className="bg-custom-color mx-2 text-black px-3 py-1 rounded hover:bg-custom-color-500 transition duration-300" href='_' onClick={()=> ( window.open('https://x.com/0xTribeBet', '_blank'))}>
-                            Share on X
-                        </button>
-                        </div>
+                                    <div className="flex items-center">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png"
+                                            alt="Team Flag"
+                                            className="w-8 h-5 mr-2" />
+                                        <span className="text-lg font-semibold text-yellow-300">{bet.team}</span>
+                                    </div>
+                                    <span className="text-md text-yellow-300 font-semibold">
+                                        x{bet.odds.toFixed(2)}
+                                    </span>
+                                </div>
+                                <div className="mb-4">
+                                    <label htmlFor="betAmount" className="text-sm font-medium text-gray-300">
+                                        Bet Amount
+                                    </label>
+                                    <div className="mt-1 relative rounded-md shadow-sm">
+                                        <input
+                                            type="number"
+                                            id="betAmount"
+                                            value={bet.betAmount}
+                                            className="block w-full pl-4 pr-12 sm:text-sm bg-gray-700 border-gray-600 rounded-md text-white"
+                                            placeholder="0"
+                                            readOnly
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-right">
+                                    <span className="text-sm font-medium text-gray-300">Potential Win:</span>
+                                    <span className="text-lg font-bold text-green-400 ml-2">
+                                        ${bet.potentialWin.toFixed(2)}
+                                    </span>
+                                    <button className="bg-custom-color mx-2 text-black px-3 py-1 rounded hover:bg-custom-color-500 transition duration-300" href='_' onClick={() => (window.open('https://x.com/0xTribeBet', '_blank'))}>
+                                        Share on X
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
