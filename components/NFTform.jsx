@@ -49,7 +49,7 @@ const NFTform = () => {
 
         const transaction = {
             data: {
-                function: `0x0b75fa3de537ce2c078052f59149932556e6a1ca7278974b47a3ee65cb3373f3::create_nft_with_resource_account::mint_event_ticket`,
+                function: `0x60d5794fe2137499a335757436bb34618b2607a1dcb898d12e998f0014a17521::create_nft_with_resource_account::mint_event_ticket`,
                 functionArguments: [],
             },
         }
@@ -137,12 +137,12 @@ const NFTform = () => {
 
                     <form >
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Name</label>
-                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Bored Ape Yacht Club" required />
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Your Name</label>
+                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="0xshikhar.apt" required />
                         </div>
                         <div className=" flex flex-col text-left mb-6">
                             <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Description</label>
-                            <input type="text" id="input-name" defaultValue={nftDescription} onChange={descriptionHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Write about your collection details here" required />
+                            <input type="text" id="input-name" defaultValue={nftDescription} onChange={descriptionHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Write Your Description" required />
                         </div>
 
                         <div className=" flex flex-col text-left mb-6">

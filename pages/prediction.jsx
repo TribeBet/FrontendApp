@@ -110,7 +110,7 @@ const Prediction = () => {
           </figure>
 
           <figure className="flex flex-col items-center justify-center pt-10 pr-20 ">
-            <div className="text-center px-[50px] align-middle w-[650px] h-[650px] p-8 bg-[#202020] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className="text-center px-[50px] align-middle w-[650px] h-[500px] p-8 bg-[#202020] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <form onSubmit={onFormSubmit}>
                 <div className=" flex flex-col text-left mb-6 mt-6">
                   <label

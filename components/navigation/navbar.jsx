@@ -204,11 +204,12 @@ export default function Navbar() {
                     Identity Connect
                 </div>
                 <div className="flex relative text-lg font-semibold px-6 py-3 bg-[#98ee2c] mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer ">
-                    <Wallet />
+                    {/* <Wallet /> */}
+                    <WalletSelector/>
+
 
                 </div>
                 {/* <button onClick={() => onConnect(wallet.name)}>{wallet.name}</button>; */}
-                {/* <WalletSelector/> */}
 
             </div>
         </div>

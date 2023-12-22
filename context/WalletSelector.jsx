@@ -7,7 +7,8 @@ import {
     WalletReadyState,
     WalletName,
 } from "@aptos-labs/wallet-adapter-react";
-// import { truncateAddress } from "./utils";
+import { truncateAddress } from "@/lib/utils";
+
 const { Text } = Typography;
 
 // type WalletSelectorProps = {
@@ -52,10 +53,10 @@ export function WalletSelector({
     };
     const buttonText = account?.ansName
         ? account?.ansName
-        : (account?.address);
+        : truncateAddress(account?.address);
     return (
         <>
-            <Button className="wallet-button" onClick={() => onWalletButtonClick()}>
+            <Button className="wallet-button text-lg font-bold" onClick={() => onWalletButtonClick()}>
                 {connected ? buttonText : "Connect Wallet"}
             </Button>
             <Modal

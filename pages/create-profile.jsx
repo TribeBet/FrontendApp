@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs'
 import NFTform from '@/components/NFTform';
-import Create from '@/components/Create';
 
 
 export default function Nft() {
@@ -33,7 +32,6 @@ export default function Nft() {
                         <NFTform />
                     </div>
                 </figure>
-                <Create />
             </div>
         </div>
     )

@@ -19,13 +19,15 @@
 		"antd": "^5.12.5",
 		"aptos": "^1.21.0",
 		"chart.js": "^4.4.1",
+		"clsx": "^2.0.0",
 		"jotai": "^2.6.0",
 		"next": "13.1.2",
 		"petra-plugin-wallet-adapter": "^0.3.0",
 		"react": "18.2.0",
 		"react-chartjs-2": "^5.2.0",
 		"react-dom": "18.2.0",
-		"react-modal": "^3.16.1"
+		"react-modal": "^3.16.1",
+		"tailwind-merge": "^2.2.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
