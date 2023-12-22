@@ -5,10 +5,31 @@ import React, { useState, useEffect, useRef, createFactory, useCallback } from '
 // import { NFT_CONTRACT } from '../../client/config'
 import { BsArrowRight } from 'react-icons/bs'
 import { useRouter } from 'next/navigation';
+import { Account, Aptos, AptosConfig, Network, NetworkToNetworkName } from "@aptos-labs/ts-sdk"
+import { useWallet } from "@aptos-labs/wallet-adapter-react"
+import { atom, useAtom } from 'jotai'
+import { walletAddressAtom } from "@/lib/state";
+
 
 const NFTform = () => {
     const router = useRouter();
+    const {
+        connect,
+        account,
+        network,
+        connected,
+        disconnect,
+        wallet,
+        wallets,
+        signAndSubmitTransaction,
+        signAndSubmitBCSTransaction,
+        signTransaction,
+        signMessage,
+        signMessageAndVerify,
+    } = useWallet()
     // const wallet = useWallet();
+    const [walletAddress, setWalletAddress] = useAtom(walletAddressAtom);
+
     const [nftObjectId, setNftObjectId] = useState('');
     const [nftName, setNftName] = useState('');
     const [nftDescription, setNftDescription] = useState('');
@@ -16,13 +37,47 @@ const NFTform = () => {
     const [nftPrice, setNftPrice] = useState('');
     const [nftAmount, setNftAmount] = useState('');
 
+    const APTOS_NETWORK = NetworkToNetworkName[process.env.APTOS_NETWORK] || Network.TESTNET
+    const config = new AptosConfig({ network: APTOS_NETWORK })
+    const aptos = new Aptos(config)
+    console.log("account", wallet, account)
+
+    const mintNFT = async () => {
+        if (!account) return []
+
+        console.log('minting started')
+
+        const transaction = {
+            data: {
+                function: `0x0b75fa3de537ce2c078052f59149932556e6a1ca7278974b47a3ee65cb3373f3::create_nft_with_resource_account::mint_event_ticket`,
+                functionArguments: [],
+            },
+        }
+
+        console.log("transaction", transaction)
+        try {
+            // sign and submit transaction to chain
+            const response = await signAndSubmitTransaction(transaction)
+            console.log(response)
+            // wait for transaction
+            await aptos.waitForTransaction({ transactionHash: response.hash })
+            // setAccountHasList(true)
+        } catch (error) {
+            // setAccountHasList(false)
+        }
+
+    }
+
     const onFormSubmit = async (event) => {
         event.preventDefault();
 
         console.log(nftName, nftDescription, nftImage, nftPrice);
         console.log("wallet", wallet);
         console.log("wallet", wallet?.account?.address)
-        if (!wallet?.account?.address) return;
+        // if (!wallet?.account?.address) return;
+        console.log("mint nft function called")
+        await mintNFT();
+
         // try {
         //     const transactionBlock = new TransactionBlock();
         //     transactionBlock.moveCall({
@@ -82,16 +137,16 @@ const NFTform = () => {
 
                     <form >
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter NFT Name</label>
-                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Bored Ape Yacht Club" required />
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Your Name</label>
+                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="0xShikhar" required />
                         </div>
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter NFT Description</label>
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Your Description</label>
                             <input type="text" id="input-name" defaultValue={nftDescription} onChange={descriptionHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Write about your collection details here" required />
                         </div>
 
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Paste Image URL for NFT</label>
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Share Your Image URL</label>
                             <input type="text" id="input-name" defaultValue="https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/in/wp-content/uploads/2022/03/monkey-g412399084_1280.jpg" onChange={imageHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
 

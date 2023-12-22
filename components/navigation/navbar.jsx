@@ -7,12 +7,22 @@ import React, { useState } from "react";
 import logo from "../../public/images/logo-betting.png";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-// import WalletAdapterPlugin  from '@identity-connect/wallet-adapter-plugin';
-// import { WalletAdapter } from '@identity-connect/wallet-sdk';
 import { DAPP_ID } from '@/lib/constant';
 import { ICDappClient } from '@identity-connect/dapp-sdk';
+import { ICWalletClient, WalletInfo } from '@identity-connect/wallet-sdk';
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import { WalletSelector } from "@/context/WalletSelector";
+
 
 const icDappClient = new ICDappClient(DAPP_ID);
+const walletInfo = {
+    deviceIdentifier: 'device-identifier',
+    platform: 'native-app',
+    platformOS: 'ios',
+    walletName: 'Petra',
+};
+
+const icWalletClient = new ICWalletClient(walletInfo);
 
 const style = {
     wrapper: `bg-black w-screen px-[1.2rem] py-[0.8rem] flex `,
@@ -31,6 +41,25 @@ export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState("Search Your Team");
     const [navbar, setNavbar] = useState(false);
     // console.log(WalletAdapterPlugin)
+    const {
+        connect,
+        account,
+        network,
+        connected,
+        disconnect,
+        wallet,
+        wallets,
+        signAndSubmitTransaction,
+        signAndSubmitBCSTransaction,
+        signTransaction,
+        signMessage,
+        signMessageAndVerify,
+      } = useWallet();
+
+    const onConnect = async (walletName) => {
+        await connect(walletName);
+    };
+
 
     const idConnect = async () => {
         try {
@@ -176,7 +205,11 @@ export default function Navbar() {
                 </div>
                 <div className="flex relative text-lg font-semibold px-6 py-3 bg-[#98ee2c] mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer ">
                     <Wallet />
+
                 </div>
+                {/* <button onClick={() => onConnect(wallet.name)}>{wallet.name}</button>; */}
+                {/* <WalletSelector/> */}
+
             </div>
         </div>
     );
