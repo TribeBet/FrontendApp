@@ -22,7 +22,7 @@ const StreamPage = () => {
     <div className="min-h-screen bg-gradient-to-r from-gray-800 to-black text-white flex flex-col md:flex-row">
       {/* Video Section */}
       <div className="w-full md:w-2/3 p-4">
-        <div className="bg-gray-900 border-gray-400 rounded mb-2 rounded-lg overflow-hidden shadow-xl">
+        <div className="bg-gray-900 border-gray-400 mb-2 rounded-lg overflow-hidden shadow-xl">
           <div className="h-96 flex items-center  justify-center bg-cover bg-center" style={{ backgroundImage: "url('/esports-background.jpg')" }}>
             <span className="text-2xl font-bold text-white">Live Stream Video Here</span>
           </div>
