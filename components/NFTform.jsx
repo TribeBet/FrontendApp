@@ -137,27 +137,28 @@ const NFTform = () => {
 
                     <form >
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Your Name</label>
-                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="0xShikhar" required />
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Name</label>
+                            <input type="text" id="input-name" defaultValue={nftName} onChange={nameHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Bored Ape Yacht Club" required />
                         </div>
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Your Description</label>
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter Description</label>
                             <input type="text" id="input-name" defaultValue={nftDescription} onChange={descriptionHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Write about your collection details here" required />
                         </div>
 
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Share Your Image URL</label>
-                            <input type="text" id="input-name" defaultValue="https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/in/wp-content/uploads/2022/03/monkey-g412399084_1280.jpg" onChange={imageHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Paste Profile Image Url </label>
+                            <input type="text" id="input-name" defaultValue="https://thumbor.forbes.com.jpg" onChange={imageHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
 
                         <div className=" flex flex-col text-left mb-6">
-                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Enter NFT Price</label>
-                            <input type="number" id="input-name" defaultValue={nftPrice} onChange={priceHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="0.1 SUI" required />
+                            <label htmlFor="text" className=" mb-2 text-lg font-medium text-white dark:text-white">Social Link </label>
+                            <input type="text" id="input-name" defaultValue="https://x.com" onChange={priceHandler} className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-purple-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
                         </div>
 
                         <button onClick={onFormSubmit}
                             className="flex justify-start relative text-lg px-8 py-3 bg-[#98ee2c]  mr-5 uppercase font-Agda font-bold text-black hover:bg-[#f0f0f0] cursor-pointer" >
-                            Mint NFT Event
+                            Mint NFT Profile
                             <BsArrowRight className='mt-1 ml-2' />
                         </button>
 
