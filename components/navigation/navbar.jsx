@@ -9,7 +9,10 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 // import WalletAdapterPlugin  from '@identity-connect/wallet-adapter-plugin';
 // import { WalletAdapter } from '@identity-connect/wallet-sdk';
+import { DAPP_ID } from '@/lib/constant';
+import { ICDappClient } from '@identity-connect/dapp-sdk';
 
+const icDappClient = new ICDappClient(DAPP_ID);
 
 const style = {
     wrapper: `bg-black w-screen px-[1.2rem] py-[0.8rem] flex `,
@@ -28,6 +31,20 @@ export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState("Search Your Team");
     const [navbar, setNavbar] = useState(false);
     // console.log(WalletAdapterPlugin)
+
+    const idConnect = async () => {
+        try {
+            const connectedAddress = await icDappClient.connect();
+            console.log(connectedAddress)
+
+            if (connectedAddress !== undefined) {
+                console.log(`Account with address ${connectedAddress} is now connected.`);
+                setAccountAddress(connectedAddress);
+            }
+        } catch (error) {
+            console.error('Error connecting wallet:', error);
+        }
+    };
 
     return (
         <div className={style.wrapper}>
@@ -152,7 +169,8 @@ export default function Navbar() {
                     <CgProfile />
                 </div>
 
-                <div className="flex relative text-lg font-semibold px-6 py-3 bg-white mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer ">
+                <div className="flex relative text-lg font-semibold px-6 py-3 bg-white mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer "
+                    onClick={idConnect}>
                     {/* <WalletAdapterPlugin /> */}
                     Identity Connect
                 </div>
