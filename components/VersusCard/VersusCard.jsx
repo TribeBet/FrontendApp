@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import BettingSlip from './BettingSlip/BettingSlip';
 import gameData from '../../lib/gameData';
+
 const VersusCard = ({ image1, image2, text1, text2, team1, team2, prob1, prob2, prob3, date, sportName, tournament }) => {
   const [bettingSlipVisible, setBettingSlipVisible] = useState(false);
 

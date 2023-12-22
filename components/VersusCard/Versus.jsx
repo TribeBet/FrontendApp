@@ -9,7 +9,7 @@ const sportsData = [
   { name: 'Cricket', teams: ['India', 'England', 'Australia'], date: '19 Nov 2023' },
   { name: 'Football', teams: ['Manchester City', 'Real Madrid', 'Brazil'], date: '20 Nov 2023' },
   { name: 'Basketball', teams: ['Spain', 'USA', 'Argentina'], date: '21 Nov 2023' },
-  { name : 'Esports', teams:['RPG gaming','US GAMING23', "Striker58"], date: "22 Dec 2023"}
+  { name: 'Esports', teams: ['RPG gaming', 'US GAMING23', "Striker58"], date: "22 Dec 2023" }
 ];
 
 const generateVersusData = (sportsData, gameData) => {
@@ -68,24 +68,27 @@ const VersusSlider = () => {
         sports={['All', ...sportsData.map((sport) => sport.name)]}
         onSportChange={handleSportChange}
       />
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
 
-      {sortedData.map((item, index) => (
-        <VersusCard
-          key={index}
-          image1={item.team1.image}
-          text1={`${item.team1.name} (${item.team1.sport})`}
-          image2={item.team2.image}
-          text2={`${item.team2.name} (${item.team2.sport})`}
-          team1={item.team1.name}
-          team2={item.team2.name}
-          prob1={item.prob1}
-          prob2={item.prob2}
-          prob3={item.prob3}
-          date={item.date}
-          sportName={item.sportName}
-        />
-      ))}
-    </div>
+        {sortedData.map((item, index) => (
+          <VersusCard
+            key={index}
+            image1={item.team1.image}
+            text1={`${item.team1.name} (${item.team1.sport})`}
+            image2={item.team2.image}
+            text2={`${item.team2.name} (${item.team2.sport})`}
+            team1={item.team1.name}
+            team2={item.team2.name}
+            prob1={item.prob1}
+            prob2={item.prob2}
+            prob3={item.prob3}
+            date={item.date}
+            sportName={item.sportName}
+          />
+        ))}
+      </div>
+
+    </div >
   );
 };
 
