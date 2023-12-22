@@ -11,6 +11,8 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@aptos-labs/wallet-adapter-react": "^2.1.4",
+		"@identity-connect/wallet-sdk": "^0.4.4",
 		"@livepeer/react": "^3.1.7",
 		"@supabase/supabase-js": "^2.39.1",
 		"chart.js": "^4.4.1",
