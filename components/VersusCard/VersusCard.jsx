@@ -11,7 +11,7 @@ const VersusCard = ({ image1, image2, text1, text2, team1, team2, prob1, prob2, 
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-700 to-gray-900 shadow-xl p-4 mb-4 text-center max-w-md h-[350px] mx-auto rounded-xl">
+    <div className="bg-gradient-to-r from-gray-700 to-gray-900 shadow-xl p-4 mb-4 text-center max-w-md h-[300px] mx-auto rounded-xl">
       <div className="mb-4 flex items-center justify-between">
         <div className="text-left">
           <h2 className="text-l font-bold text-white">{tournament}</h2>
