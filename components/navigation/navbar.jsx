@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import logo from "../../public/images/logo-betting.png";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { WalletAdapterPlugin } from '@identity-connect/wallet-adapter-plugin';
+// import WalletAdapterPlugin  from '@identity-connect/wallet-adapter-plugin';
 // import { WalletAdapter } from '@identity-connect/wallet-sdk';
 
 
@@ -27,7 +27,7 @@ export default function Navbar() {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState("Search Your Team");
     const [navbar, setNavbar] = useState(false);
-    console.log(WalletAdapterPlugin)
+    // console.log(WalletAdapterPlugin)
 
     return (
         <div className={style.wrapper}>
@@ -153,7 +153,8 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex relative text-lg font-semibold px-6 py-3 bg-white mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer ">
-                    <WalletAdapterPlugin />
+                    {/* <WalletAdapterPlugin /> */}
+                    Identity Connect
                 </div>
                 <div className="flex relative text-lg font-semibold px-6 py-3 bg-[#98ee2c] mr-5 text-black hover:bg-[#f0f0f0] cursor-pointer ">
                     <Wallet />
