@@ -2,17 +2,22 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { atom, useAtom } from 'jotai'
+import { walletAddressAtom } from "@/lib/state";
+import { Router } from 'next/router';
 
 const nft = () => {
+    const [walletAddress, setWalletAddress] = useAtom(walletAddressAtom);
+
     const [userProfile, setUserProfile] = useState({
         username: 'User123',
-        twitterHandle: '@user123',
-        avatar: '',
+        twitterHandle: walletAddress,
+        avatar: '/images/avatar.png',
         stats: {
             matchesPlayed: 10,
             matchesWon: 6,
             matchesLost: 4
-        },
+        }, 
         ongoingBets: [
             { team: 'India', odds: 1.5, betAmount: 100, potentialWin: 150 },
             { team: 'Australia', odds: 2.0, betAmount: 120, potentialWin: 240 },
@@ -59,7 +64,7 @@ return (
                             <Image src={userProfile.avatar} alt="Avatar" width={100} height={100} className="rounded-full" />
                             <h1 className="text-3xl font-bold">{userProfile.username}</h1>
                         </div>
-                        <button className="bg-green-400 text-black px-4 py-2 rounded hover:bg-green-500 transition duration-300">
+                        <button className="bg-custom-color text-black px-4 py-2 rounded hover:bg-custom-color-500 transition duration-300">
                             Connect to {userProfile.twitterHandle}
                         </button>
                     </div>
@@ -122,6 +127,9 @@ return (
                             <span className="text-lg font-bold text-green-400 ml-2">
                                 ${bet.potentialWin.toFixed(2)}
                             </span>
+                            <button className="bg-custom-color mx-2 text-black px-3 py-1 rounded hover:bg-custom-color-500 transition duration-300" href='_' onClick={()=> ( window.open('https://x.com/0xTribeBet', '_blank'))}>
+                            Share on X
+                        </button>
                         </div>
                             </div>
                         ))}

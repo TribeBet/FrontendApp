@@ -143,7 +143,7 @@ export default function Navbar() {
                 <div
                     className={style.headerIcon}
                     onClick={() => {
-                        router.push("/nft");
+                        router.push("/profile");
                     }}
                 >
                     <CgProfile />
