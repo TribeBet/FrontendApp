@@ -9,7 +9,8 @@ const sportsData = [
   { name: 'Cricket', teams: ['India', 'England', 'Australia'], date: '19 Nov 2023' },
   { name: 'Football', teams: ['Manchester City', 'Real Madrid', 'Brazil'], date: '20 Nov 2023' },
   { name: 'Basketball', teams: ['Spain', 'USA', 'Argentina'], date: '21 Nov 2023' },
-  { name: 'Esports', teams: ['RPG gaming', 'US GAMING23', "Striker58"], date: "22 Dec 2023" }
+  { name: 'Esports', teams: ['RPG gaming', 'US GAMING23', "Striker58"], date: "22 Dec 2023" },
+  { name: 'Prediction', teams: ['Who wins 2024 election', '1', "2"], date: "22 Dec 2023" }
 ];
 
 const generateVersusData = (sportsData, gameData) => {
