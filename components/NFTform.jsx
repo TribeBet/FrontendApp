@@ -1,22 +1,14 @@
 "use client"
 
 import React, { useState, useEffect, useRef, createFactory, useCallback } from 'react'
-import { ethos, TransactionBlock } from 'ethos-connect'
+// import { ethos, TransactionBlock } from 'ethos-connect'
 // import { NFT_CONTRACT } from '../../client/config'
 import { BsArrowRight } from 'react-icons/bs'
 import { useRouter } from 'next/navigation';
-import {
-    ConnectButton,
-    useAccountBalance,
-    useWallet,
-    SuiChainId,
-    ErrorCode,
-    formatSUI
-} from "@suiet/wallet-kit";
 
 const NFTform = () => {
     const router = useRouter();
-    const wallet = useWallet();
+    // const wallet = useWallet();
     const [nftObjectId, setNftObjectId] = useState('');
     const [nftName, setNftName] = useState('');
     const [nftDescription, setNftDescription] = useState('');
