@@ -129,7 +129,7 @@ export default function Navbar() {
                             </div>
                         </li>
                         <li>
-                            <div onClick={() => { router.push("/bets"); }}>
+                            <div onClick={() => { router.push("/prediction"); }}>
                                 Create Prediction
                             </div>
                         </li>
