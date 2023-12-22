@@ -1,7 +1,7 @@
 "use client"
 // components/BettingSlip.js
 import React, { useState } from 'react';
-
+import {gameData} from '../../../lib/gameData'
 const BettingSlip = ({ onClose, match }) => {
   const [selectedOption, setSelectedOption] = useState('Team A');
   const [betAmount, setBetAmount] = useState(0);
