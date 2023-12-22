@@ -18,11 +18,13 @@ const BettingSlip = ({ onClose, match }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-black bg-opacity-30 flex items-center justify-center backdrop-blur-md">
-      <div className="bg-[] border-2 border-solid border-gray-400 p-4 rounded-lg w-96">
-        <h2 className="text-xl font-bold mb-2">Bet Slip</h2>
-        <div className="mb-2">
-          <h3 className="text-lg font-bold">{match.team1} VS {match.team2}</h3>
+    <div className="fixed inset-0 z-50 overflow-hidden bg-black bg-opacity-60 flex items-center justify-center backdrop-blur-sm">
+      <div className="bg-gradient-to-br from-black to-gray-800 border-2 border-solid border-gray-400 p-6 rounded-lg w-96 shadow-lg">
+        <h2 className="text-xl font-bold text-white mb-4">Bet Slip</h2>
+        <div className="mb-4">
+          <h3 className="text-lg font-bold text-green-400">{match.team1} VS {match.team2}</h3>
+
+          
           <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <img src={match.team1.image} alt={match.team1.name} className="w-16 h-auto rounded-xl mb-2 mr-2" />
@@ -50,26 +52,26 @@ const BettingSlip = ({ onClose, match }) => {
           <input
             type="number"
             placeholder="Enter bet amount"
-            defaultValue={betAmount}
+            value={betAmount}
             onChange={(e) => setBetAmount(e.target.value)}
-            className="w-full px-2 py-1 border border-gray-300 rounded mt-2"
+            className="w-full px-3 py-2 border border-gray-300 rounded mt-3 bg-gray-700 text-white"
           />
-          <p className="text-sm mt-2">Potential Win: {calculatePotentialWin()}</p>
+          <p className="text-sm mt-3 text-green-400">Potential Win: {calculatePotentialWin()}</p>
         </div>
-        <div className="mb-4">
+        <div className="flex justify-between gap-2">
           <button
             onClick={handlePlaceBet}
-            className="bg-[#98ee2c] text-black px-4 py-2 rounded-full focus:outline-none hover:bg-purple-800"
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200 ease-in-out flex-grow"
           >
             Place Bet
           </button>
+          <button
+            onClick={onClose}
+            className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition duration-200 ease-in-out flex-grow"
+          >
+            Close
+          </button>
         </div>
-        <button
-          onClick={onClose}
-          className="bg-gray-300 text-gray-800 px-4 py-2 rounded-full focus:outline-none hover:bg-gray-400"
-        >
-          Close
-        </button>
       </div>
     </div>
   );

@@ -16,11 +16,10 @@ const generateVersusData = (sportsData, gameData) => {
   const versusData = [];
 
   sportsData.forEach((sport) => {
-    const teams = sport.teams;
     const data = gameData.filter((item) => item.sportName === sport.name);
 
-    // Ensure that only three sets of data are included for each sport
-    for (let i = 0; i < Math.min(6, data.length); i++) {
+    // Adjust this number to include more sets of data per sport
+    for (let i = 0; i < Math.min(7, data.length); i++) {
       versusData.push({
         team1: { name: data[i].team1.name, sport: data[i].team1.sport, image: data[i].team1.image },
         team2: { name: data[i].team2.name, sport: data[i].team2.sport, image: data[i].team2.image },
