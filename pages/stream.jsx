@@ -1,5 +1,6 @@
 // pages/stream.jsx
 import React, { useState } from 'react';
+import Video from 'next-video';
 
 const StreamPage = () => {
   // Mock match data
@@ -23,18 +24,24 @@ const StreamPage = () => {
       {/* Video Section */}
       <div className="w-full md:w-2/3 p-4">
         <div className="bg-gray-900 border-gray-400 mb-2 rounded-lg overflow-hidden shadow-xl">
-          <div className="h-96 flex items-center  justify-center bg-cover bg-center" style={{ backgroundImage: "url('/esports-background.jpg')" }}>
+          {/* <div className="h-96 flex items-center  justify-center bg-cover bg-center" style={{ backgroundImage: "url('/esports-background.jpg')" }}>
             <span className="text-2xl font-bold text-white">Live Stream Video Here</span>
+          </div> */}
+          <div>
+            <Video src='/video.mp4' 
+            autoplay
+            loop
+            />
           </div>
-          
+
         </div>
         <div className="p-4">
-            <h2 className="text-2xl font-bold mb-2">Epic Battle: Team Alpha vs Team Omega</h2>
-            <p>Experience the exhilaration of esports like never before! Immerse yourself in the world of competitive gaming, where top-tier talent from around the globe battles it out for supremacy. Witness heart-pounding action, precision teamwork, and jaw-dropping plays that will leave you on the edge of your seat. Whether you're a seasoned esports enthusiast or a newcomer, our event promises an unforgettable spectacle that showcases the true essence of digital athleticism.</p>
+          <h2 className="text-2xl font-bold mb-2">Epic Battle: Team Alpha vs Team Omega</h2>
+          <p>Experience the exhilaration of esports like never before! Immerse yourself in the world of competitive gaming, where top-tier talent from around the globe battles it out for supremacy. Witness heart-pounding action, precision teamwork, and jaw-dropping plays that will leave you on the edge of your seat. Whether you're a seasoned esports enthusiast or a newcomer, our event promises an unforgettable spectacle that showcases the true essence of digital athleticism.</p>
 
-<p>Don't miss this opportunity to be part of the esports phenomenon and cheer for your favorite teams as they vie for victory! Plus, if you've placed bets, get ready for the added excitement of potentially winning big while enjoying the action.</p>
+          <p>Don't miss this opportunity to be part of the esports phenomenon and cheer for your favorite teams as they vie for victory! Plus, if you've placed bets, get ready for the added excitement of potentially winning big while enjoying the action.</p>
 
-          </div>
+        </div>
       </div>
 
       {/* Betting Slip Section */}
@@ -68,7 +75,7 @@ const StreamPage = () => {
           <button
             onClick={() => console.log(`Bet placed on ${selectedOption} with amount ${betAmount}`)}
             className="bg-custom-color hover:bg-green-700 text-black px-4 py-2 rounded-full focus:outline-none w-full"
->
+          >
             Place Bet
           </button>
         </div>

@@ -104,8 +104,8 @@ const Tournament = () => {
       };
 
       router.push({
-        pathname: "/streams",
-        query: propsToSend,
+        pathname: "/stream",
+        // query: propsToSend,
       });
     } catch (error) {
       // Handle network error

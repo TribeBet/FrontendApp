@@ -209,8 +209,8 @@ const profile = () => {
     
 
     const [userProfile, setUserProfile] = useState({
-        username: 'User123',
-        twitterHandle: walletAddress,
+        username: '0xShikhar.apt',
+        twitterHandle: "0xe0b8e7fe69bc47569dd1e5e36d550a04bc45169c1cc4dd3b71658729b49fb7d0",
         avatar: '/images/avatar.png',
         stats: {
             matchesPlayed: 10,
@@ -268,7 +268,7 @@ const profile = () => {
                             <Image src={userProfile.avatar} alt="Avatar" width={100} height={100} className="rounded-full" />
                             <div className="flex flex-col">
                                 <h1 className="text-3xl font-bold">{userProfile.username}</h1>
-                                <div className='text-sm'> Wallet Address : {walletAddress}</div>
+                                <div className='text-sm'> Wallet Address : 0xe0b8e7fe69bc47569dd1e5e36d550a04bc45169c1cc4dd3b71658729b49fb7d0</div>
                             </div>
                         </div>
                         {/* <button className="bg-custom-color text-black px-4 py-2 rounded hover:bg-custom-color-500 transition duration-300">
